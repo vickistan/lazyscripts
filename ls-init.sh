@@ -114,7 +114,6 @@ function lsbwprompt() {
 # ostype - Determine Linux distribution
 function ostype() {
 	osstring=`cat /etc/issue`
-	echo $osstring
 	case "$osstring" in
 		*CentOS*)
 			export distro="Redhat/CentOS"

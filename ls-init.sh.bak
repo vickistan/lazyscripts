@@ -113,25 +113,13 @@ function lsbwprompt() {
 
 # ostype - Determine Linux distribution
 function ostype() {
-	osstring=`cat /etc/issue`
-	echo $osstring
-	case "$osstring" in
-		*CentOS*)
-			export distro="Redhat/CentOS"
-			echo $distro
-		;;
-		*Ubuntu*)
-			export distro="Ubuntu"
-			echo $distro
-		;;
-		*Debian*)
-			export distro="Debian"
-			echo $distro
-		;;
-		*)
-			echo -e "Could not detect distribution type." && export distro="Other"
-		;;
-	esac
+	if [ -e /etc/redhat-release ]; then
+		export distro="Redhat/CentOS"
+	elif [ "$(lsb_release -d | awk '{print $2}')" == "Ubuntu" ]; then
+		export distro="Ubuntu"
+	else
+		echo -e "Could not detect distribution type." && export distro="Other"
+	fi
 }
 
 function lsinfo() {

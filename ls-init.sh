@@ -1,6 +1,6 @@
 #!/bin/bash
 # LazyScripts Initializer Script
-# https://github.com/hhoover/lazyscripts/
+# https://github.com/vickistan/lazyscripts/
 #
 # Usage: dot (`. ls-init.sh`) or source this file (`source ls-init.sh`)
 #        to load into your current shell
@@ -9,7 +9,7 @@
 LZS_VERSION=004
 LZS_PREFIX=$(dirname $(readlink -f $BASH_SOURCE))
 LZS_APP="$LZS_PREFIX/ls-init.sh"
-LZS_URLPREFIX="git://github.com/hhoover/lazyscripts.git"
+LZS_URLPREFIX="git://github.com/vickistan/lazyscripts.git"
 LZS_GETURL="$LZS_URLPREFIX/ls-init.sh"
 LZS_MOD_PATH="${LZS_PREFIX}/modules/"
 
@@ -482,7 +482,7 @@ function lslogin() {
 	lscpchk
 	# Print the MOTD
 	cat /etc/motd
-	echo -e "LazyScripts Project Page - https://github.com/hhoover/lazyscripts"
+	echo -e "LazyScripts Project Page - https://github.com/vickistan/lazyscripts"
 }
 
 function lsnova() {

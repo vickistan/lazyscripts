@@ -10,7 +10,7 @@ function install_vsftpd() {
 		fi
 		yum -y -q install vsftpd
 		echo "vsftpd installed."
-	elif [ ${distro} == "Ubuntu" ]; then
+	elif [ ${distro} == "Ubuntu" || ${distro} == "Debian" ]; then
 		if [ -f /etc/vsftpd.conf ]; then
 			echo "vsftpd might be already installed! Exiting."
 			exit 1
@@ -24,7 +24,7 @@ function install_vsftpd() {
 }
 
 function check_21() {
-        if netstat -ntlp | grep 21 2>/dev/null
+        if netstat -ntlp | grep 21 |grep vsftpd 2>/dev/null
         then
         echo -e "\a\n Something is running on port 21"
         echo -e "\a\n Closing Script"
